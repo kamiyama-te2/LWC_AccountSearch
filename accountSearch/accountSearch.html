@@ -1,0 +1,37 @@
+<template>
+    <lightning-card>
+        <div style="display:flex">
+            <lightning-input data-id="searchKeyAccountNumber"
+            type="search" label="取引先番号" value={searchKeyAccountNumber} max-length="40">
+            </lightning-input>
+            <lightning-input data-id="searchKeyName"
+            type="search" label="取引先名" value={searchKeyName} max-length="30">
+            </lightning-input>
+            <lightning-input data-id="searchKeyPhone"
+            type="search" label="電話番号" value={searchKeyPhone} max-length="14">
+            </lightning-input>
+            <lightning-input data-id="searchKeySite"
+            type="search" label="取引先 部門" value={searchKeySite} max-length="80">
+            </lightning-input>
+            <lightning-input data-id="searchKeyBillingState"
+            type="search" label="都道府県" value={searchKeyBillingState} max-length="10">
+            </lightning-input>
+        </div>
+        <div>
+            <lightning-button variant="brand" label="検索" onclick={searchHandler}>
+            </lightning-button>
+        </div>
+        <div style="height: 800px;">
+            <lightning-datatable
+                    key-field="id"
+                    data={accounts}
+                    columns={columns}
+                    show-row-number-column="true"
+                    onsort={handleSortData}
+                    sorted-by={sortedBy}
+                    sorted-direction={sortedDirection}
+                    >
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
